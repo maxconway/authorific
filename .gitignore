@@ -1,3 +1,9 @@
+# for web2py
+cache
+databases
+errors
+sessions
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

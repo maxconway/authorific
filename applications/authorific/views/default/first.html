@@ -1,0 +1,10 @@
+{{extend 'layout.html'}}
+<h1>Insert your text:</h1>
+<form>
+  <textarea name="text" type="text" style="width:40em; height:25em"></textarea>
+  <br/>
+  <input type="submit" />
+</form>
+
+
+<h1> You entered: {{=session.text or "nothing"}}</h1>
