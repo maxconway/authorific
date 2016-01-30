@@ -4,6 +4,8 @@ def user(): return dict(form=auth())
 def download(): return response.download(request,db)
 def call(): return service()
 ### end requires
+import backend_functions
+
 def index():
 	return dict(message="this is dynamic and templated")
 
