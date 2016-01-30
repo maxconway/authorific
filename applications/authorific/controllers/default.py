@@ -6,13 +6,10 @@ def call(): return service()
 ### end requires
 import backend_functions
 
-def index():
-	return dict(message="this is dynamic and templated")
-
 def error():
     return dict()
 
-def first():
+def index():
 	response.menu = [
 		['Authorific', True, URL('first')],
 		['Explanation', True, URL('second')]
