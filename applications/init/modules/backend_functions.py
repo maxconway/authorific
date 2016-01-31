@@ -14,7 +14,7 @@ import pandas as pd
 def callme(text):
 
 	moduledir = os.path.dirname(os.path.abspath('__file__'))
-	trained = pickle.load(open(os.path.join(moduledir, 'applications/authorific/modules/moduledata/all_trained.p'), "rb"))
+	trained = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/all_trained.p'), "rb"))
 	count_vect = trained['music_count_vect']
 	mod = trained['music_classifier_svm_fit']
 	tfidf_transformer = trained['music_tfidf_transformer']
