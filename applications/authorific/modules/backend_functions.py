@@ -1,21 +1,24 @@
+from gluon.custom_import import track_changes; track_changes(True)
+
 import os
 import csv
 import json
 import pickle
 
 import pandas as pd
-import numpy as np
-from sklearn.linear_model import SGDClassifier
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-tfidf_transformer = TfidfTransformer(use_idf=True, smooth_idf=True)
+# import numpy as np
+# from sklearn.linear_model import SGDClassifier
+# from sklearn.feature_extraction.text import CountVectorizer
+# from sklearn.feature_extraction.text import TfidfTransformer
 
 def callme(text):
 
-	# mod = pickle.load(open("./moduledata/svm_classifier.p", "rb"))
-	# count_vect = pickle.load(open("./moduledata/count_vect.p", "rb"))
-	trained = pickle.load(open("./moduledata/all_trained.p", "rb"))
-	test_counts = count_vect.transform(pd.Series(['baby baby more baby']))
+	moduledir = os.path.dirname(os.path.abspath('__file__'))
+	trained = pickle.load(open(os.path.join(moduledir, 'applications/authorific/modules/moduledata/all_trained.p'), "rb"))
+	count_vect = trained['music_count_vect']
+	mod = trained['music_classifier_svm_fit']
+	tfidf_transformer = trained['music_tfidf_transformer']
+	test_counts = count_vect.transform(pd.Series([text]))
 	test_tfidf = tfidf_transformer.transform(test_counts)
 	predicted_svm2 = mod.predict(test_tfidf) 
 	print predicted_svm2
