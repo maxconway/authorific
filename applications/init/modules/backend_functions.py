@@ -5,14 +5,13 @@ import csv
 import json
 import pickle
 
-# import pandas as pd
+import pandas as pd
 # import numpy as np
 # from sklearn.linear_model import SGDClassifier
 # from sklearn.feature_extraction.text import CountVectorizer
 # from sklearn.feature_extraction.text import TfidfTransformer
 
 moduledir = os.path.dirname(os.path.abspath('__file__'))
-Series = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/Series.p'), "rb"))
 songs = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/songs_all_trained.p'), "rb"))
 literature = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/literature_all_trained.p'), "rb"))
 speeches = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/speeches_all_trained.p'), "rb"))
@@ -23,7 +22,7 @@ def use_model(text, trained):
 	count_vect = trained['count_vect']
 	mod = trained['classifier_svm_fit']
 	tfidf_transformer = trained['tfidf_transformer']
-	test_counts = count_vect.transform(Series([text]))
+	test_counts = count_vect.transform(pd.Series([text]))
 	test_tfidf = tfidf_transformer.transform(test_counts)
 	predicted_svm2 = mod.predict(test_tfidf) 
 
