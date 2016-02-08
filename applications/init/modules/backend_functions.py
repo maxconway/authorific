@@ -13,7 +13,7 @@ import pandas as pd
 
 moduledir = os.path.dirname(os.path.abspath('__file__'))
 songs = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/songs_all_trained.p'), "rb"))
-literature = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/literature_all_trained.p'), "rb"))
+#literature = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/literature_all_trained.p'), "rb"))
 speeches = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/speeches_all_trained.p'), "rb"))
 # old_songs = pickle.load(open(os.path.join(moduledir, 'applications/init/modules/moduledata/all_trained.p'), "rb"))
 
@@ -31,8 +31,8 @@ def use_model(text, trained):
 def predict_song(text):
 	return(use_model(text,songs))
 
-def predict_literature(text):
-	return(use_model(text,literature))
+# def predict_literature(text):
+	# return(use_model(text,literature))
 
 def predict_speech(text):
 	return(use_model(text,speeches))
