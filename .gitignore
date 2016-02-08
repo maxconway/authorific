@@ -68,3 +68,6 @@ target/
 .ipynb_checkpoints
 httpserver.pid
 parameters_8000.py
+
+# gluon stuff
+gluon/*
