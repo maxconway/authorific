@@ -18,7 +18,7 @@ def index():
 	if request.vars.text:
 		# session.text = backend_functions.callme(request.vars.text)
 		session.song = backend_functions.predict_song(request.vars.text)
-		# session.literature = backend_functions.predict_literature(request.vars.text)
+		session.literature = backend_functions.predict_literature(request.vars.text)
 		session.speech = backend_functions.predict_speech(request.vars.text)
 		# redirect(URL('second'))
 	return dict()
